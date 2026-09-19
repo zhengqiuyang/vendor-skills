@@ -1,5 +1,7 @@
 # vendor-skills
 
+[![CI](https://github.com/zhengqiuyang/vendor-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zhengqiuyang/vendor-skills/actions/workflows/ci.yml)
+
 **The vendoring tool for Agent Skills.**
 
 pinned · validated · reproducible · offline
