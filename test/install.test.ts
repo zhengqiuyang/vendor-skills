@@ -360,7 +360,7 @@ test("update: validation gate failure keeps the old pin and the old directory", 
 
   // Break the skill upstream: empty the body -> SKILL_BODY_EMPTY.
   const skillMd = join(repo, "pdf-helper", "SKILL.md");
-  const original = await readFile(skillMd, "utf8");
+  const original = (await readFile(skillMd, "utf8")).replace(/\r\n/g, "\n");
   const frontmatter = original.split("---\n").slice(0, 2).join("---\n") + "---\n";
   await writeFile(skillMd, frontmatter, "utf8"); // frontmatter only, empty body
   await git(["add", "-A"], repo);
