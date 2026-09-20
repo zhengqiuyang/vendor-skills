@@ -1,14 +1,13 @@
 {
   "name": "vendor-skills",
   "version": "0.2.0",
-  "description": "The vendoring tool for Agent Skills: install SKILL.md skills from any git remote at a pinned commit, behind a validation gate, into .agents/skills/ with a committed lockfile - reproducible, offline-friendly, zero telemetry.",
+  "description": "The vendoring tool for Agent Skills — pinned, validated, reproducible, offline",
   "keywords": [
     "agent-skills",
-    "skill-md",
+    "claude",
     "skills",
     "vendoring",
-    "lockfile",
-    "cli"
+    "lockfile"
   ],
   "license": "MIT",
   "type": "module",
@@ -17,6 +16,7 @@
   },
   "files": [
     "dist",
+    "example-skills",
     "README.md",
     "LICENSE"
   ],
@@ -26,7 +26,8 @@
   "scripts": {
     "build": "tsc",
     "test": "npm run build && node run-tests.mjs",
-    "demo": "node dist/src/cli.js init demo-skill && node dist/src/cli.js validate && node dist/src/cli.js list"
+    "demo": "node dist/src/cli.js init demo-skill && node dist/src/cli.js validate && node dist/src/cli.js list",
+    "prepublishOnly": "npm run build && npm test"
   },
   "dependencies": {
     "yaml": "^2.6.0"
@@ -34,5 +35,9 @@
   "devDependencies": {
     "@types/node": "^24.0.0",
     "typescript": "^5.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhengqiuyang/vendor-skills.git"
   }
 }
