@@ -1,12 +1,27 @@
+<div align="center">
+
 # vendor-skills
 
-[![CI](https://github.com/zhengqiuyang/vendor-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/zhengqiuyang/vendor-skills/actions/workflows/ci.yml)
-
-**The vendoring tool for Agent Skills.**
+**The vendoring tool for Agent Skills — `npm ci` for skills.**
 
 pinned · validated · reproducible · offline
 
+[![CI](https://github.com/zhengqiuyang/vendor-skills/actions/workflows/ci.yml/badge.svg?style=flat-square)](https://github.com/zhengqiuyang/vendor-skills/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=flat-square)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/zhengqiuyang/vendor-skills?style=flat-square&color=0969da)](https://github.com/zhengqiuyang/vendor-skills/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/zhengqiuyang/vendor-skills?style=flat-square&label=updated)](https://github.com/zhengqiuyang/vendor-skills/commits)
+
+```bash
+npm install -g vendor-skills
+```
+
+[Why](#why) · [Install](#install) · [Quickstart](#quickstart) · [Command reference](#commands) · [Lockfile](#lockfile)
+
 > **Use `npx skills` to discover. Use vendor-skills to lock.**
+
+</div>
+
+---
 
 vendor-skills installs [Agent Skills](#the-skillmd-format-as-enforced-by-vendor-skills)
 — the directory-plus-`SKILL.md` format open-sourced by Anthropic in late 2025 —
@@ -23,6 +38,8 @@ $ vendor-skills install --frozen
 Restored pdf-helper @ 3f9c2ab1d0 (pinned) -> .agents/skills/pdf-helper
 Lockfile left untouched (--frozen): .agents/skills/vendor-skills.lock
 ```
+
+<a id="why"></a>
 
 ## Why
 
@@ -50,6 +67,8 @@ lock and your clones suffice.
 - Node.js >= 20
 - git on `PATH`
 
+<a id="install"></a>
+
 ## Install
 
 Published package (once released):
@@ -67,6 +86,8 @@ npm install
 npm run build
 node dist/src/cli.js --help    # or: npm link
 ```
+
+<a id="quickstart"></a>
 
 ## Quickstart
 
@@ -108,6 +129,8 @@ Both commands exit nonzero on any problem — a missing directory, a skill that
 no longer passes the validation gate, an unreachable pinned commit — which
 gates the pipeline. Warnings (untracked skill directories) never fail the
 build. This is the `npm ci && npm test` shape, for skills.
+
+<a id="commands"></a>
 
 ## Command reference
 
@@ -162,6 +185,8 @@ directory, re-pins the lock entry, and prints `name: <old-sha-7> → <new-sha-7>
 (`(already up to date)` when HEAD equals the pin). A failed validation keeps
 the old pin and the old directory. Skills named on the command line that have
 no lock entry are hand-installed: reported and skipped.
+
+<a id="lockfile"></a>
 
 ## The lockfile
 
